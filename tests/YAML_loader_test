@@ -1,0 +1,24 @@
+#!/usr/bin/perl
+use 5.010;
+use strict;
+use warnings;
+use Test::More tests => 3;
+
+
+BEGIN { 
+use_ok('yaml_loader');
+}
+
+subtest 'testa se subs existem no módulo' => sub {
+can_ok('yaml_loader','new');
+my $cenas="canção";
+print $cenas;
+};
+
+
+subtest 'testa se objeto criado é uma instância da classe yaml_loader' => sub{
+	my $yl=yaml_loader->new("taxonomia.yaml");
+	isa_ok($yl,'yaml_loader');
+};
+
+
