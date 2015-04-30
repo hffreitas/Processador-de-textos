@@ -1,4 +1,4 @@
-package yaml_loader;
+package YAML_loader;
 use YAML::XS 'LoadFile';
 use Data::Dumper;
 
@@ -21,11 +21,11 @@ sub new {
 
 sub get_category {
 	my ($self, $word) = @_;
-	foreach my $category ($self->{titulos}){
-			}
-	}
+	my $titles = $self->{titles};
+	foreach my $title ($titles){
+		print Dumper($title);
+	}}
 
-
 
 
 

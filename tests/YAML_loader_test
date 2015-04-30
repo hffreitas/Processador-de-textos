@@ -2,23 +2,27 @@
 use 5.010;
 use strict;
 use warnings;
+use FindBin;                 
+use lib "$FindBin::Bin/../lib";
+use YAML_loader;
 use Test::More tests => 3;
 
-
-BEGIN { 
-use_ok('yaml_loader');
+BEGIN {
+	use_ok('YAML_loader');
 }
 
-subtest 'testa se subs existem no módulo' => sub {
-can_ok('yaml_loader','new');
-my $cenas="canção";
-print $cenas;
+
+subtest 'testa se subs existem no módulo' => sub {
+	can_ok('YAML_loader','new');
+	can_ok('YAML_loader','get_category');
 };
 
 
-subtest 'testa se objeto criado é uma instância da classe yaml_loader' => sub{
-	my $yl=yaml_loader->new("taxonomia.yaml");
-	isa_ok($yl,'yaml_loader');
+subtest 'testa se objeto criado é uma instância da classe YAML_loader' => sub{
+	my $yl=YAML_loader->new("../resources/yaml_files/taxonomia.yaml");
+	isa_ok($yl,'YAML_loader');
 };
 
-
+1;
+
+
